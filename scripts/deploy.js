@@ -1,9 +1,9 @@
 async function main() {
-    const DizzyNFT = await ethers.getContractFactory("DizzyNFT")
+    const MojoPunks = await ethers.getContractFactory("MojoPunks")
   
     // Start deployment, returning a promise that resolves to a contract object
-    const dizzyNFT = await DizzyNFT.deploy()
-    console.log("Contract deployed to address:", dizzyNFT.address)
+    const mojoPunks = await MojoPunks.deploy()
+    console.log("Contract deployed to address:", mojoPunks.address)
   }
   
   main()

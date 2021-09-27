@@ -8,13 +8,13 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/interfaces/IERC2981.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-contract DizzyNFT is ERC721URIStorage, Ownable {
+contract MojoPunks is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
     address private _creator;
 
-    constructor() ERC721("DizzyNFT", "NFT")
+    constructor() ERC721("MojoPunks", "NFT")
     {
         _creator = msg.sender;
     }

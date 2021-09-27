@@ -7,7 +7,7 @@ const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3")
 const web3 = createAlchemyWeb3(API_URL)
 
-const contract = require("../artifacts/contracts/MyNFT.sol/DizzyNFT.json")
+const contract = require("../artifacts/contracts/MojoPunks.sol/MojoPunks.json")
 const nftContract = new web3.eth.Contract(contract.abi, CONTRACT_ADDRESS)
 
 async function mintNFT(tokenURI) {
@@ -25,16 +25,16 @@ async function mintNFT(tokenURI) {
   const signedTx = await web3.eth.accounts.signTransaction(tx, PRIVATE_KEY)
 
   try {
-  await web3.eth.sendSignedTransaction(
-    signedTx.rawTransaction,
-    function (err, hash) {
-      if (!err) {
-        console.log("The hash of your transaction is: ", hash, "\nCheck Alchemy's Mempool to view the status of your transaction!");       
-      } else {
-        console.log("Something went wrong when submitting your transaction:", err);
+    await web3.eth.sendSignedTransaction(
+      signedTx.rawTransaction,
+      function (err, hash) {
+        if (!err) {
+          console.log("The hash of your transaction is: ", hash, "\nCheck Alchemy's Mempool to view the status of your transaction!");       
+        } else {
+          console.log("Something went wrong when submitting your transaction:", err);
+        }
       }
-    }
-  )
+    )
   }
   catch(err) {
     console.log("Something went wrong when submitting your transaction:", err);
